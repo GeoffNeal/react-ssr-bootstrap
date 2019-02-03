@@ -1,0 +1,19 @@
+[ignore]
+
+node_modules
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+module.name_mapper='^Containers' -> '<PROJECT_ROOT>/src/containers'
+module.name_mapper='^Components' -> '<PROJECT_ROOT>/src/components'
+module.name_mapper='^Utils' -> '<PROJECT_ROOT>/src/utils'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+
+[strict]
