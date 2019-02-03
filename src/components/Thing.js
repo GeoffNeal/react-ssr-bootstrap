@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from 'Styles/Thing';
+
 const Thing = () => (
   <div>
-    <p>I am a component</p>
+    <p className={styles.thing}>I am a component</p>
   </div>
 );
 

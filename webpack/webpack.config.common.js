@@ -12,7 +12,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     // File extensions. Add others and needed (e.g. scss, json)
-    extensions: ['.js'],
+    extensions: ['.js', '.scss'],
     modules: ['node_modules'],
     // Aliases help with shortening relative paths
     // 'Components/button' === '../../../components/button'
@@ -20,6 +20,7 @@ module.exports = {
       Components: path.resolve(__dirname, '../src', 'components'),
       Containers: path.resolve(__dirname, '../src', 'containers'),
       Utils: path.resolve(__dirname, '../src', 'utils'),
+      Styles: path.resolve(__dirname, '../src', 'styles'),
     },
   },
   module: {
