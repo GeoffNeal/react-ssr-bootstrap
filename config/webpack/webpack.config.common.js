@@ -1,9 +1,10 @@
 'use strict';
 
+const path = require('path');
+
+// Plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
-const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, '../../src/index.js'),
@@ -81,11 +82,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: require('html-webpack-template'),
+      title: 'Space Place',
       inject: false,
       appMountId: 'root',
-    }),
-    // NOTE: Causes depracation warning:
-    // DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
-    new FlowBabelWebpackPlugin()
+    })
   ]
 };
