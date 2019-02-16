@@ -1,13 +1,15 @@
 // @flow
 import React from 'react';
 
-import TestContainer from 'Containers/Test';
-import styles from './test.scss';
+import Home from 'Containers/Home';
+
+// Styles
+import './index.scss';
 
 const App = () => (
-  <div className={styles.test}>
+  <div>
     <h1>Hello World</h1>
-    <TestContainer />
+    <Home />
   </div>
 );
 

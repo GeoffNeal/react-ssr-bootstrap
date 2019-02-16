@@ -1,12 +1,11 @@
+@charset 'utf-8';
+
+// Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,400i,600');
+
+// CSS Reset
+@import '../node_modules/normalize-scss/sass/normalize/import-now';
 
 body {
   font-family: 'Raleway', 'Helvetica Neue', sans-serif;
-}
-
-.test {
-  background-color: green;
-  h1 {
-    color: orange;
-  }
 }

@@ -23,8 +23,7 @@ module.exports = {
     alias: {
       Components: path.resolve(__dirname, '../../src', 'components'),
       Containers: path.resolve(__dirname, '../../src', 'containers'),
-      Utils: path.resolve(__dirname, '../../src', 'utils'),
-      Styles: path.resolve(__dirname, '../../src', 'styles'),
+      Utils: path.resolve(__dirname, '../../src', 'utils')
     },
   },
   module: {
@@ -47,6 +46,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        include: [path.resolve(__dirname, '../../src')],
         use: [
           {
             loader: MiniCssExtractPlugin.loader
