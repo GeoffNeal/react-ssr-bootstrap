@@ -4,7 +4,7 @@
 // DON'T FORGET GIT HOOKS
 const path = require('path');
 const merge = require('webpack-merge');
-const common = require('./webpack.config.common');
+const common = require('../webpack.config.common');
 
 // Plugins
 const CleanWebpackPlugin = require('clean-webpack-plugin');

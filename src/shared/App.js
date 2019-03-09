@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-import Home from 'Containers/Home';
+import Home from './containers/Home';
 
 // Styles
 import './index.scss';
