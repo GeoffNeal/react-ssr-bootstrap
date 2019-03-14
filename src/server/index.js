@@ -8,6 +8,7 @@ import chalk from 'chalk';
 import manifestMiddleware from 'ExpressMiddleware/manifest-middleware';
 
 // Other
+import { configureStore } from '../shared/store';
 import paths from '../../config/paths';
 import serverRender from './render';
 
@@ -26,6 +27,11 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  req.store = configureStore();
+  return next();
+});
+
 const manifestPath = path.join(paths.clientBuild, paths.publicPath);
 
 app.use(
@@ -35,10 +41,6 @@ app.use(
 );
 
 app.use(serverRender());
-
-app.get('/', (req, res) => {
-  return res.send('hello');
-});
 
 app.listen(process.env.PORT || 8500, () => {
   // eslint-disable-next-line no-console

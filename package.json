@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_ENV=development node project-scripts/start.js",
-    "build": "webpack --progress --config config/webpack/webpack.config.prod.js",
+    "build": "NODE_ENV=production node project-scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,12 +14,19 @@
     "@babel/polyfill": "^7.2.5",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
+    "connected-react-router": "^6.3.2",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "history": "^4.7.2",
     "normalize-scss": "^7.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1"
+    "react-helmet": "^5.2.0",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -57,6 +64,8 @@
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
     "prettier": "^1.16.2",
+    "puppeteer": "^1.13.0",
+    "react-dev-utils-for-webpack4": "^5.0.0-webpack4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",

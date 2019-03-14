@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
+const sharedAllPlugins = [
+  new webpack.HotModuleReplacementPlugin(),
+]
+
 const sharedDevPlugins = [
   // Only plugins that can be used for both client and server
   // NOTE: Causes depracation warning:
@@ -48,21 +52,25 @@ const sharedServerPlugins = [
 ];
 
 const clientDevPlugins = [
+  ...sharedAllPlugins,
   ...sharedDevPlugins,
   ...sharedClientPlugins,
 ];
 
 const clientProdPlugins = [
+  ...sharedAllPlugins,
   ...sharedprodPlugins,
   ...sharedClientPlugins,
 ];
 
 const serverDevPlugins = [
+  ...sharedAllPlugins,
   ...sharedDevPlugins,
   ...sharedServerPlugins
 ];
 
 const serverProdPlugins = [
+  ...sharedAllPlugins,
   ...sharedprodPlugins,
   ...sharedServerPlugins
 ];
