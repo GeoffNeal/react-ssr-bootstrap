@@ -4,7 +4,11 @@ module.exports = {
   name: 'server',
   target: 'node',
   entry: {
-    server: [require.resolve('@babel/polyfill'), `${paths.srcServer}/index.js`]
+    server: [
+      require.resolve('core-js/stable'),
+      require.resolve('regenerator-runtime/runtime'),
+      `${paths.srcServer}/index.js`
+    ]
   },
   output: {
     path: paths.serverBuild,

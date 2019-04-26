@@ -12,7 +12,7 @@ const paths = {
     srcClient: resolveApp('src/client'),
     srcServer: resolveApp('src/server'),
     srcShared: resolveApp('src/shared'),
-    publicPath: '/',
+    publicPath: '/static/',
 };
 
 paths.resolveModules = [
