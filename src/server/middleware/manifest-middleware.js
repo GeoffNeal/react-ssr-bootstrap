@@ -15,7 +15,6 @@ const loadManifest = () => {
 
 export const lookup = source => {
   manifest = loadManifest();
-
   if (manifest[source]) return options.prependPath + manifest[source];
   return '';
 };

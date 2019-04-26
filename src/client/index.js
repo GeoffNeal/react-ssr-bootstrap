@@ -33,16 +33,7 @@ ReactDOM.hydrate(
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
-    module.hot.accept('../shared/App', () => {
-      ReactDOM.hydrate(
-        <Provider store={store}>
-          <Router history={browserHistory}>
-            <App />
-          </Router>
-        </Provider>,
-        document.getElementById('root'),
-      );
-    });
+    module.hot.accept();
   }
 
   if (!window.store) {
