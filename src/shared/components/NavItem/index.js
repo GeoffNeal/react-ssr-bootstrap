@@ -1,18 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { string } from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { string, bool, shape } from 'prop-types';
 
 // Styles
-// import styles from './styles.scss';
+import styles from './styles.scss';
 
-const NavItem = props => {
-  const { href, text } = props;
-  return <Link to={href}>{text}</Link>;
+const NavItem = ({ href, text, attrs }) => {
+  return (
+    <NavLink activeClassName={styles.active} to={href} {...attrs}>
+      {text}
+    </NavLink>
+  );
 };
 
 NavItem.propTypes = {
   href: string.isRequired,
   text: string.isRequired,
+  attrs: shape({
+    exact: bool,
+  }),
+};
+
+NavItem.defaultProps = {
+  attrs: {},
 };
 
 export default NavItem;

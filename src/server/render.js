@@ -8,9 +8,11 @@ import Html from './Html';
 import App from '../shared/App';
 
 const serverRenderer = () => (req, res) => {
+  const context = {};
+
   const content = renderToString(
     <Provider store={req.store}>
-      <Router location={req.url} context={{}}>
+      <Router location={req.url} context={context}>
         <App />
       </Router>
     </Provider>,

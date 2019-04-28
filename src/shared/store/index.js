@@ -1,13 +1,14 @@
-/* eslint-disable no-underscore-dangle */
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './rootReducer';
 
 export const configureStore = ({ initialState, middleware = [] } = {}) => {
+  /* eslint-disable no-underscore-dangle */
   const devtools =
     typeof window !== 'undefined' &&
     typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsBlacklist: [] });
+  /* eslint-enable */
 
   const composeEnhancers = devtools || compose;
 
