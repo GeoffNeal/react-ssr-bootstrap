@@ -3,7 +3,10 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 // Router
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
+// Components
+import Navigation from 'Components/Navigation';
 
 // Store
 import { connect } from 'react-redux';
@@ -13,9 +16,7 @@ import { hello } from './store/app/actions';
 import Home from './containers/Home';
 import About from './containers/About';
 import Search from './containers/Search';
-
-// Components
-import Navigation from './components/Navigation';
+import NotFound from './containers/NotFound';
 
 // Styles
 import './index.scss';
@@ -34,6 +35,7 @@ const App = props => {
           {
             href: '/',
             text: 'Home',
+            attrs: { exact: true },
           },
           {
             href: '/about',
@@ -45,9 +47,12 @@ const App = props => {
           },
         ]}
       />
-      <Route path="/" exact component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/search" component={Search} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/search" component={Search} />
+        <Route component={NotFound} />
+      </Switch>
 
       <h1>Hello World</h1>
       <p>state: {JSON.stringify(state)}</p>

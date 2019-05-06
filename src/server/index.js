@@ -11,6 +11,7 @@ import manifestMiddleware from 'ExpressMiddleware/manifest-middleware';
 import { configureStore } from '../shared/store';
 import paths from '../../config/paths';
 import serverRender from './render';
+import createHistory from '../shared/store/history';
 
 const app = express();
 
@@ -27,10 +28,16 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  req.store = configureStore();
-  return next();
-});
+const addStore = (req, res, next) => {
+  const history = createHistory({ initialEntries: [req.url] });
+  res.locals.store = configureStore({ history });
+  if (typeof next !== 'function') {
+    throw new Error('Next handler is missing');
+  }
+  next();
+};
+
+app.use(addStore);
 
 const manifestPath = path.join(paths.clientBuild, paths.publicPath);
 
