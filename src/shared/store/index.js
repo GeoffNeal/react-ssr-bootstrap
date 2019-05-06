@@ -1,8 +1,9 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './rootReducer';
+import { routerMiddleware } from 'connected-react-router';
+import createRootReducer from './rootReducer';
 
-export const configureStore = ({ initialState, middleware = [] } = {}) => {
+export const configureStore = ({ history, initialState, middleware = [] }) => {
   /* eslint-disable no-underscore-dangle */
   const devtools =
     typeof window !== 'undefined' &&
@@ -13,9 +14,13 @@ export const configureStore = ({ initialState, middleware = [] } = {}) => {
   const composeEnhancers = devtools || compose;
 
   const store = createStore(
-    rootReducer,
+    createRootReducer(history),
     initialState,
-    composeEnhancers(applyMiddleware(...[thunk].concat(...middleware))),
+    composeEnhancers(
+      applyMiddleware(
+        ...[thunk, routerMiddleware(history)].concat(...middleware),
+      ),
+    ),
   );
 
   if (process.env.NODE_ENV !== 'production') {

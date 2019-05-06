@@ -11,14 +11,14 @@ const serverRenderer = () => (req, res) => {
   const context = {};
 
   const content = renderToString(
-    <Provider store={req.store}>
+    <Provider store={res.locals.store}>
       <Router location={req.url} context={context}>
         <App />
       </Router>
     </Provider>,
   );
 
-  const state = JSON.stringify(req.store.getState());
+  const state = JSON.stringify(res.locals.store.getState());
 
   const template = renderToString(
     <Html
