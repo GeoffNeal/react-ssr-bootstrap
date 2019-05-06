@@ -2,10 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import {
-  ConnectedRouter as Router,
-  routerMiddleware,
-} from 'connected-react-router';
+import { ConnectedRouter as Router } from 'connected-react-router';
 
 // Components
 import App from '../shared/App';
@@ -14,17 +11,21 @@ import App from '../shared/App';
 import { configureStore } from '../shared/store';
 import createHistory from '../shared/store/history';
 
-const browserHistory = createHistory();
+const history = createHistory();
+
+// Create/use the store.
+// history MUST be passed here if you want
+// syncing between server on initial route.
 const store =
   window.store ||
   configureStore({
     initialState: window.__PRELOADED_STATE__,
-    middleware: [routerMiddleware(browserHistory)],
+    history,
   });
 
 ReactDOM.hydrate(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={history}>
       <App />
     </Router>
   </Provider>,
@@ -33,16 +34,7 @@ ReactDOM.hydrate(
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
-    module.hot.accept('../shared/App', () => {
-      ReactDOM.hydrate(
-        <Provider store={store}>
-          <Router history={browserHistory}>
-            <App />
-          </Router>
-        </Provider>,
-        document.getElementById('root'),
-      );
-    });
+    module.hot.accept();
   }
 
   if (!window.store) {

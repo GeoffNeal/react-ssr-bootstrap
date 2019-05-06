@@ -20,7 +20,10 @@ const Html = (props: PropsT) => {
     <html {...htmlAttrs}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <meta content="ie=edge" httpEquiv="x-ua-compatible" />
         {helmet.base.toComponent()}
         {helmet.title.toComponent()}
@@ -38,6 +41,7 @@ const Html = (props: PropsT) => {
       </head>
       <body {...bodyAttrs}>
         <div id="root" dangerouslySetInnerHTML={{ __html: children }} />
+        <noscript>You need to enable JavaScript to run this app.</noscript>
         {scripts.map(src => (
           <script key={src} src={src} />
         ))}

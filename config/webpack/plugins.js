@@ -4,6 +4,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
+const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
 
 const sharedAllPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -11,6 +12,7 @@ const sharedAllPlugins = [
 
 const sharedDevPlugins = [
   // Only plugins that can be used for both client and server
+  new WriteFileWebpackPlugin(),
   // NOTE: Causes depracation warning:
   // DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
   new FlowBabelWebpackPlugin(),
@@ -40,7 +42,7 @@ const sharedClientPlugins = [
     inject: false,
     appMountId: 'root',
   }),
-  new ManifestPlugin({ writeToFileEmit: true }),
+  new ManifestPlugin({ filename: 'manifest.json' }),
 ];
 
 const sharedServerPlugins = [

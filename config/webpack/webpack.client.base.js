@@ -5,7 +5,11 @@ module.exports = {
   name: 'client',
   target: 'web',
   entry: {
-    main: [require.resolve('@babel/polyfill'), `${paths.srcClient}/index.js`],
+    main: [
+      require.resolve('core-js/stable'),
+      require.resolve('regenerator-runtime/runtime'),
+      `${paths.srcClient}/index.js`
+    ],
   },
   output: {
     path: path.join(paths.clientBuild, paths.publicPath),
