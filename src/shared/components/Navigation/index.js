@@ -2,10 +2,10 @@ import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
 
 // Components
-import NavItem from '../NavItem';
+import NavItem from 'Components/NavItem';
 
 // Styles
-import styles from './styles.scss';
+import styles from './Navigation.scss';
 
 const Navigation = props => {
   const { items } = props;

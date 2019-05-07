@@ -9,9 +9,11 @@ const resolver = {
   // Aliases help with shortening relative paths
   // 'Components/button' === '../../../components/button'
   alias: {
+    Shared: path.resolve(__dirname, paths.src, 'shared'),
     Components: path.resolve(__dirname, paths.src ,'shared', 'components'),
     Containers: path.resolve(__dirname, paths.src ,'shared', 'containers'),
     Utils: path.resolve(__dirname, paths.src, 'utils'),
+    Config: path.resolve(__dirname, '..'),
     ExpressMiddleware: path.resolve(__dirname, paths.srcServer, 'middleware'),
   },
 };
