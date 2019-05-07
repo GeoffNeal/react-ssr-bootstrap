@@ -6,12 +6,12 @@ import chalk from 'chalk';
 
 // Middleware
 import manifestMiddleware from 'ExpressMiddleware/manifest-middleware';
+import serverRenderMiddleware from 'ExpressMiddleware/render-middleware';
 
 // Other
-import { configureStore } from '../shared/store';
-import paths from '../../config/paths';
-import serverRender from './render';
-import createHistory from '../shared/store/history';
+import paths from 'Config/paths';
+import { configureStore } from 'Shared/store';
+import createHistory from 'Shared/store/history';
 
 const app = express();
 
@@ -47,7 +47,7 @@ app.use(
   }),
 );
 
-app.use(serverRender());
+app.use(serverRenderMiddleware());
 
 app.listen(process.env.PORT || 8500, () => {
   // eslint-disable-next-line no-console

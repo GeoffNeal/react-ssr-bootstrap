@@ -3,11 +3,16 @@ import { NavLink } from 'react-router-dom';
 import { string, bool, shape } from 'prop-types';
 
 // Styles
-import styles from './styles.scss';
+import styles from './NavItem.scss';
 
 const NavItem = ({ href, text, attrs }) => {
   return (
-    <NavLink activeClassName={styles.active} to={href} {...attrs}>
+    <NavLink
+      className={styles.link}
+      activeClassName={styles.active}
+      to={href}
+      {...attrs}
+    >
       {text}
     </NavLink>
   );
