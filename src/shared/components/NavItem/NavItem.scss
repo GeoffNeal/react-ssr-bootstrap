@@ -1,8 +1,11 @@
 .link {
+  display: block;
   text-decoration: none;
+  padding: 15px 20px;
   color: #fff;
 }
 
 .active {
-  color: #99b2d4;
+  color: #d4dff3;
+  background-color: #5a729f;
 }

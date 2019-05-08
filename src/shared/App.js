@@ -22,7 +22,7 @@ import './index.scss';
 
 const App = () => (
   <div>
-    <Helmet defaultTitle="spaceplace.com" titleTemplate="%s | spaceplace.com" />
+    <Helmet defaultTitle="ssr-app.com" titleTemplate="%s | ssr-app.com" />
     <Navigation items={navLinks} />
     <Switch>
       <Route path="/" exact component={Home} />
