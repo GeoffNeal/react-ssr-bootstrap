@@ -26,7 +26,7 @@ const generateStaticHtml = async () => {
       // TODO: add try/wait/retry here instead of just generally waiting for 2000 ms
       await sleep(2000);
       const browser = await puppeteer.launch();
-      const page = await puppeteer.newPage();
+      const page = await browser.newPage();
       await page.goto(`${HOST}:${PORT}`);
       const pageContent = await page.content();
       fs.writeFileSync(`${paths.clientBuild}/index.js`, pageContent);
@@ -34,7 +34,7 @@ const generateStaticHtml = async () => {
       script.emit('quit');
     } catch (e) {
       script.emit('quit');
-      console.log(err);
+      console.log(e);
     }
   });
 
@@ -80,7 +80,7 @@ const build = async () => {
   try {
     await serverPromise;
     await clientPromise;
-    await generateStaticHTML();
+    await generateStaticHtml();
     logMessage('Done!', 'info');
   } catch (error) {
     logMessage(error, 'error');

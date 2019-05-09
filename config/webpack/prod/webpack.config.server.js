@@ -2,14 +2,22 @@ const path = require('path');
 const merge = require('webpack-merge');
 const serverConfig = require('../webpack.server.base.js');
 
-// Config
-const { server: { prod: serverProdLoaders } } = require('../loaders');
-const { server: { prod: serverProdPlugins } } = require('../plugins');
-const { server: { prod: serverProdResolvers } } = require('../resolvers');
-
 // Utils
 const paths = require('../../paths.js');
 
+// Config
+const { server: { prod: serverProdLoaders } } = require('../loaders');
+const { server: { prod: serverProdResolvers } } = require('../resolvers');
+const {
+  server: {
+    prod: {
+      regular: serverProdPlugins,
+      minimizer: serverProdPluginsOptimization,
+    }
+  }
+} = require('../plugins');
+
+// Export
 module.exports = merge(serverConfig, {
   mode: 'production',
   devtool: 'inline-source-map',
@@ -22,5 +30,8 @@ module.exports = merge(serverConfig, {
     rules: serverProdLoaders,
   },
   plugins: serverProdPlugins,
-  resolve: serverProdResolvers
+  resolve: serverProdResolvers,
+  optimization: {
+    minimizer: serverProdPluginsOptimization,
+  },
 });
