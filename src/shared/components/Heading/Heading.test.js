@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Heading from '.';
 
-test('Heading testy McTest face', () => {
-  const heading = shallow(<Heading>Banana</Heading>);
+test('sanity test', () => {
+  const heading = shallow(<Heading>Hello world</Heading>);
 
-  expect(heading.text()).toEqual('Banana');
+  expect(heading.text()).toEqual('Hello world');
 });
