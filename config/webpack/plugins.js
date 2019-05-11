@@ -33,7 +33,7 @@ const sharedDevPlugins = [
   new WriteFileWebpackPlugin(),
   // NOTE: Causes depracation warning:
   // DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
-  new FlowBabelWebpackPlugin(),
+  // new FlowBabelWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: "[name].css",
     chunkFilename: "[id].css"
