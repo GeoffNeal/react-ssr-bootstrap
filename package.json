@@ -1,6 +1,6 @@
 {
   "name": "space-place",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -72,7 +72,6 @@
     "react-dev-utils-for-webpack4": "^5.0.0-webpack4",
     "regenerator-runtime": "^0.13.2",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
