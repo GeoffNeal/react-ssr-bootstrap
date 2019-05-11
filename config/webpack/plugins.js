@@ -115,6 +115,7 @@ const serverProdPlugins = [
 ];
 
 // Optimization plugin combinations
+// (Goes in a different part of config)
 // ================================================================
 
 const clientProdPluginsOptimization = [
