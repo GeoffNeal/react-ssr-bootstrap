@@ -1,4 +1,4 @@
-## 0.1.1
+## 1.0.0
 
 * Installed major packages.
 * Set up linting and typechecking.
@@ -10,6 +10,9 @@
 * Created cra-esq project-scripts for use in package.json.
 * Added hot module replacement.
 * Added redux store.
+* Setup jest testing.
+* Setup flow typechecking but not using at the moment.
+* Setup react routing.
 
 ## 0.1.0
 
