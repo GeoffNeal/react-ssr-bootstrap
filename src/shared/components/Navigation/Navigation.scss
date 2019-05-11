@@ -1,0 +1,14 @@
+// Temp var
+$brand-primary: #2a4982;
+
+.navigation {
+  display: block;
+  background-color: $brand-primary;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: inline-block;
+}

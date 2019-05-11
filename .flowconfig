@@ -1,0 +1,22 @@
+[ignore]
+
+node_modules
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+module.name_mapper='^Shared' -> '<PROJECT_ROOT>/src/shared'
+module.name_mapper='^Containers' -> '<PROJECT_ROOT>/src/shared/containers'
+module.name_mapper='^Components' -> '<PROJECT_ROOT>/src/shared/components'
+module.name_mapper='^Utils' -> '<PROJECT_ROOT>/src/shared/utils'
+module.name_mapper='^Config' -> '<PROJECT_ROOT>/config'
+module.name_mapper='^ExpressMiddleware' -> '<PROJECT_ROOT>/src/server/middleware'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+
+[strict]
